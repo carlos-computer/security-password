@@ -5,11 +5,11 @@ using SecurityPassword.Models;
 namespace SecurityPassword.Data
 {
 	public class FileStorage(string archivePath)
-    {
+	{
 		private readonly string _path = archivePath;
 
 		public void SaveCredential(CredentialRecord entry)
-		{
+		{	
 			var credentials = LoadCredentials();
 			credentials.Add(entry);
 			File.WriteAllText(_path, JsonConvert.SerializeObject(credentials));
